@@ -210,6 +210,7 @@ document.body.onkeydown = function(event) {
             if (snum == 1) {
                 subTitle.innerText = "GOKU Win!";
                 combo1++;
+                combo2 = 0;
                 if (combo1 == 3) {
                     blood2 -= 20;
                     combo1 = 0;
@@ -240,6 +241,7 @@ document.body.onkeydown = function(event) {
             if (snum == 1) {
                 subTitle.innerText = "VEGETA Win!";
                 combo2++;
+                combo1 = 0;
                 if (combo2 == 3) {
                     blood1 -= 20;
                     combo2 = 0;

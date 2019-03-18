@@ -163,13 +163,13 @@ button {
 }
 #blood1 {
   height: 20px;
-  width: 20%;
+  width: 0%;
   background-image: linear-gradient(to right, #F85B1A, red);
   transition: .5s;
 }
 #blood2 {
   height: 20px;
-  width: 20%;
+  width: 0%;
   background-image: linear-gradient(to left, #181463, blue);
   transition: .5s
 }
