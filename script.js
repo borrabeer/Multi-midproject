@@ -12,6 +12,8 @@ function ready2() {
     blood1 = 100;
     blood2 = 100;
     timeup = 90;
+    combo1 = 0;
+    combo2 = 0;
     updateRound();
     updateBlood1();
     updateBlood2();
@@ -25,7 +27,7 @@ function ready2() {
 function ready() {
     document.getElementById('play').style.display = "none";
     document.getElementById('Howtoplay').style.display = "none";
-    if (timeup > 0) {
+    if ((timeup > 0) && (blood1 > 0 && blood2 > 0)) {
         reset();
         clearTimeout(check2);
         clearTimeout(check);
@@ -61,9 +63,13 @@ function countdown() {
             if (timeup > 0) {
                 timeup--;
                 updateTime();
+                if (blood1 == 0 || blood2 == 0) {
+                    clearInterval(cd);
+                    updateRound();
+                }
             }
             else{
-                clearIntervak(cd);
+                clearInterval(cd);
             }
         },1000);
 }
@@ -72,6 +78,8 @@ function updateTime() {
         document.getElementById('round').innerText = timeup;
     }else {
         subTitle.innerHTML = "<button class='button' style='vertical-align:middle' href='#!' onclick='ready2()'><span>PLAY AGAIN</span></button>";
+        document.getElementById('round').innerText = "TIMES UP!";
+        updateRound();
     }
 
 }
@@ -110,12 +118,16 @@ function updateTime() {
 //         }
 // }
 function updateRound() {
-    if ((blood1 == 0 || blood2 == 0) || timeup == 0) {
+    if ((blood1 == 0 || blood2 == 0) || (timeup == 0)) {
         if (blood1 > blood2) {
+            clearTimeout(check)
+            clearTimeout(check2)
             theTime.innerText = "Champion is GOKU";
             subTitle.innerHTML = "<button class='button' style='vertical-align:middle' href='#!' onclick='ready2()'><span>PLAY AGAIN</span></button>";
         }
         else {
+            clearTimeout(check)
+            clearTimeout(check2)
             theTime.innerText = "Champion is VEGETA";
             subTitle.innerHTML = "<button class='button' style='vertical-align:middle' href='#!' onclick='ready2()'><span>PLAY AGAIN</span></button>";
         }
