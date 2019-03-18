@@ -11,7 +11,7 @@ var combo1 = 0, combo2 = 0;
 function ready2() {
     blood1 = 100;
     blood2 = 100;
-    round = 0;
+    timeup = 90;
     updateRound();
     updateBlood1();
     updateBlood2();
@@ -25,7 +25,7 @@ function ready2() {
 function ready() {
     document.getElementById('play').style.display = "none";
     document.getElementById('Howtoplay').style.display = "none";
-    if (round <= 10) {
+    if (timeup > 0) {
         reset();
         clearTimeout(check2);
         clearTimeout(check);
@@ -110,7 +110,7 @@ function updateTime() {
 //         }
 // }
 function updateRound() {
-    if (blood1 == 0 || blood2 == 0) {
+    if ((blood1 == 0 || blood2 == 0) || timeup == 0) {
         if (blood1 > blood2) {
             theTime.innerText = "Champion is GOKU";
             subTitle.innerHTML = "<button class='button' style='vertical-align:middle' href='#!' onclick='ready2()'><span>PLAY AGAIN</span></button>";

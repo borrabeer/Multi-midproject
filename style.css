@@ -164,13 +164,13 @@ button {
 #blood1 {
   height: 20px;
   width: 20%;
-  background-color: red;
+  background-image: linear-gradient(to right, #F85B1A, red);
   transition: .5s;
 }
 #blood2 {
   height: 20px;
   width: 20%;
-  background-color: blue;
+  background-image: linear-gradient(to left, #181463, blue);
   transition: .5s
 }
 .boxblood {
